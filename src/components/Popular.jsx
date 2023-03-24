@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context/Global";
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const Popular = ({ rendered }) => {
   const { popularAnime, isSearch, searchResults } = useGlobalContext();
@@ -43,10 +44,11 @@ const Popular = ({ rendered }) => {
   };
 
   return (
-    <div className="flex px-1">
+    <div className="flex  md:flex-row flex-col px-1">
       <div className="mt-8 pt-8 pb-8 lg:pl-20 w-full grid gap-8 bg-[#fff] border-[5px] border-solid border-[#e5e7eb] xl:grid-cols-5 md:grid-cols-2 grid-cols-1 lg:grid-cols-4">
         {conditionalRender()}
       </div>
+      <Sidebar />
     </div>
   );
 };
