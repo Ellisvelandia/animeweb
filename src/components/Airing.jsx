@@ -1,29 +1,13 @@
 import React from "react";
-import { useGlobalContext } from "../context/Global";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context/Global";
 
-const Popular = ({ rendered }) => {
-  const { popularAnime, isSearch, searchResults } = useGlobalContext();
+const Airing = ({ rendered }) => {
+  const { airingAnime, isSearch, searchResults } = useGlobalContext();
 
   const conditionalRender = () => {
-    if (!isSearch && rendered === "popular") {
-      return popularAnime.map((anime) => {
-        return (
-          <Link
-            className="xl:h-[500px] md:h-[400px] rounded-md border-solid border border-[#e5e7eb] md:px-0 px-8 hover:scale-105 transition-all ease-in-out duration-500"
-            to={`/anime/${anime.mal_id}`}
-            key={anime.mal_id}
-          >
-            <img
-              src={anime.images.jpg.large_image_url}
-              alt={anime.mal_id}
-              className="w-full h-full aspect-square rounded-sm"
-            />
-          </Link>
-        );
-      });
-    } else {
-      return searchResults.map((anime) => {
+    if (!isSearch && rendered === "airing") {
+      return airingAnime?.map((anime) => {
         return (
           <Link
             className="xl:h-[500px] md:h-[400px] rounded-md border-solid border border-[#e5e7eb] md:px-0 px-8 hover:scale-105 transition-all ease-in-out duration-500"
@@ -35,6 +19,22 @@ const Popular = ({ rendered }) => {
               alt={anime.mal_id}
               className="w-full h-full aspect-square rounded-sm"
               loading="lazy"
+            />
+          </Link>
+        );
+      });
+    } else {
+      return searchResults?.map((anime) => {
+        return (
+          <Link
+            className="xl:h-[500px] md:h-[400px] rounded-md border-solid border border-[#e5e7eb] md:px-0 px-8 hover:scale-105 transition-all ease-in-out duration-500"
+            to={`/anime/${anime.mal_id}`}
+            key={anime.mal_id}
+          >
+            <img
+              src={anime.images.jpg.large_image_url}
+              alt={anime.mal_id}
+              className="w-full h-full aspect-square rounded-sm"
             />
           </Link>
         );
@@ -51,4 +51,4 @@ const Popular = ({ rendered }) => {
   );
 };
 
-export default Popular;
+export default Airing;

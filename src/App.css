@@ -8,11 +8,15 @@
   font-weight: 400;
   font-family: "Nunito", sans-serif;
   font-synthesis: none;
-  list-style: none;
-  text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: red;
+  font-size: 1.2rem;
+  color: #6c7983;
+}
+
+.web {
+  color: white;
+  background: linear-gradient(to right, #f75586, #ae2727);
 }

@@ -2,17 +2,17 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AnimeItem from "./components/AnimeItem";
-import Popular from "./components/Popular";
-import { useGlobalContext } from "./context/Global";
+import Gallery from "./components/Gallery";
+import HomePage from "./components/HomePage";
 
 const App = () => {
-  const Global = useGlobalContext();
-  console.log(Global);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Popular />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/anime/:id" element={<AnimeItem />} />
+        <Route path="/character/:id" element={<Gallery />} />
       </Routes>
     </BrowserRouter>
   );
