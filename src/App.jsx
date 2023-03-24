@@ -6,7 +6,6 @@ import Gallery from "./components/Gallery";
 import HomePage from "./components/HomePage";
 
 const App = () => {
-
   return (
     <BrowserRouter>
       <Routes>
